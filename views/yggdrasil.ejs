@@ -1,0 +1,49 @@
+<%- include('partials/header') -%>
+<div class = 'top-container'>
+    <div class="inside-top">
+        <h3><i class="fas fa-soli fa-tree"></i>Yggdrasil</h3>
+        <h3><%= user.displayName %></h3>      
+    </div>
+</div>
+<div >
+    <ul class="group-container">
+        <% for(let i = 0; i<6; i++){ %>  
+            <% if(group[i]) {%>
+            <li >
+                <div class="list-container2" >
+                    <div class="title-container">
+                        <h6><%= group[i]?.title %></h6>
+                    </div>
+                    <ul>
+                        <% for(let j=0;j<links.length;j++){ %>
+                            <div class="link-container" >
+                                <% if(group[i]?._id.toString() == links[j]?.group.toString()) { %>
+                                    <li>
+                                        <a href="<%= links[j].link %>" target="_blank" class="btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
+                                    </li>  
+                                <% } %>
+                            </div>  
+                        <% } %>
+                    </ul> 
+                </div>
+            </li>
+            <% } %>
+        <% } %>
+    </ul>
+</div>
+
+<% if(group.length > 6) { %>
+    <div class="nextPage-container">
+        <h6>All Groups</h6>
+        <a href="/allGroups/<%=user._id%>" >
+            <i class="large material-icons">arrow_forward</i>
+        </a>
+    </div>
+<% } %>
+
+
+
+
+
+
+<%- include('partials/footer') -%>
