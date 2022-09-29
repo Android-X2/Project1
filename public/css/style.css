@@ -1,6 +1,7 @@
 body {
-    color:black;
-    
+    color:white;
+    background: rgb(134,176,73);
+    background: linear-gradient(90deg, rgba(134,176,73,1) 0%, rgba(153,190,101,1) 20%, rgba(174,207,133,1) 40%, rgba(195,223,165,1) 60%, rgba(206,232,181,1) 80%, rgba(223,245,206,1) 100%); 
 }
 
 .card-content{
@@ -13,6 +14,7 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
     flex: 1;
+    
 }
 
 .group-container li{
@@ -20,6 +22,7 @@ body {
 }
 
 .list-container{
+    background-color: #48569c;
     border-radius: 25px;
     height: 300px;
     display: flex;
@@ -30,6 +33,7 @@ body {
 }
 
 .list-container2{
+    background-color: #48569c;
     border-radius: 25px;
     height: 300px;
     display: flex;
@@ -38,6 +42,16 @@ body {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.list-container3{
+    background-color: #48569c;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 .dashboard-header{
     display: flex;
     flex-direction: column;
@@ -55,15 +69,15 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     margin-top: auto;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 .title-container{
     display: flex;
     justify-content:center;
 }
-
 .link-container{
+    background-color: #dee2fc;
     margin-top: 1%;
 }
 .login-container{
@@ -89,4 +103,21 @@ body {
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+
+.change{
+    background: rgb(#525B88);
+}
+
+.seed-container{
+    background-color: #dee2fc;
+}
+
+.option-container{
+    border-radius: 10px;
+    width:15%;
+}
+.option-container a{
+    color: white;
+    display: flex;
 }

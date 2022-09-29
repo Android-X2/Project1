@@ -14,12 +14,13 @@
                     <div class="title-container">
                         <h6><%= group[i]?.title %></h6>
                     </div>
+                    <div class="divider"></div>
                     <ul>
                         <% for(let j=0;j<links.length;j++){ %>
                             <div class="link-container" >
                                 <% if(group[i]?._id.toString() == links[j]?.group.toString()) { %>
                                     <li>
-                                        <a href="<%= links[j].link %>" target="_blank" class="btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
+                                        <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
                                     </li>  
                                 <% } %>
                             </div>  

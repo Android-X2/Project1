@@ -1,19 +1,27 @@
 <%- include('partials/header') -%>
 
-<a href="/profile/<%= user %>">Link to Public Profile</a>
+
+<header class="dashboard-header top-container">
+    <h3><i class="fas fa-soli fa-tree"></i>Yggdrasil</h3>
+    <div class="top-container option-container">
+        <a href="/profile/<%= user %>">Link to Public Profile</a>
+    </div>
+</header>
 <div >
     <ul class="group-container">
         <% for(var i=0; i<group.length; i++) {%> 
             <li class="thing">
                 <div class="list-container">
                     <div>
-                        <span><%= group[i].title %></span>
+                        <div class="title-container">
+                            <h6><%= group[i]?.title %></h6>
+                        </div>
                         <ul>
                             <% for(let j=0;j<links.length;j++){ %>
                                 <div class="thing">
                                     <% if(group[i]._id.toString() == links[j].group.toString()) { %>
                                         <li>
-                                            <a href="<%= links[j].link %>" target="_blank" class="btn btn-primary btn-block"><%= links[j].title %></a>
+                                            <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block"><%= links[j].title %></a>
     
                                         </li>  
                                         <% } %>
