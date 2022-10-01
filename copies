@@ -1,0 +1,1 @@
+<% let links1=links.find(x=>Object.values(x).includes(group[i._id])) %>

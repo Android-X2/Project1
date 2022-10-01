@@ -121,3 +121,13 @@ body {
     color: white;
     display: flex;
 }
+
+
+.all-container{
+    display: flex;
+    justify-content: center;
+}
+
+.all-container a{
+    color: white;
+}

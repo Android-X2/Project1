@@ -10,43 +10,50 @@
 
 <div >
     <ul class="group-container">
-        <% for(var i=0; i<group.length; i++) {%> 
+        <% for(var i=0; i<groups.length; i++) {%> 
             <li class="change">
                 <div class="list-container">
                     <div class="links-container">
                         <div class="title-container">
-                            <h6><%= group[i]?.title %></h6>
+                            <h6><%= groups[i]?.title %></h6>
                         </div>
                         <div class="divider"></div>
+                        <% let links1 = links.filter(x=>x.group.toString() == groups[i]._id.toString()) %>
                         <ul>
-                            <% for(let j=0;j<links.length;j++){ %>
+                            <% for(let j=0; j<4; j++){ %>
+                                <% if(links1[j]) { %> 
                                 <div class="link-container" >
-                                    <% if(group[i]._id.toString() == links[j].group.toString()) { %>
                                         <li>
-                                            <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
+                                            <a href="<%= links1[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links1[j].title %></a>
                                         </li>  
-                                    <% } %>
                                 </div>  
+                                <% } %>
                             <% } %>
                         </ul> 
+                        <% if(links1.length>6){ %> 
+                            <div class="all-container">
+                                <a href="#">All The Links...</a>
+                            </div>
+                        <%}%>
                     </div>
                     
                     <div class="btn-containers">
                         <div class="edit-container">
-                            <% if(group[i].user == user.id) { %>
+                            <% if(groups[i].user == user.id) { %>
                             <div class="group-button">
-                                <a href="/getCreateLinkPage/<%= group[i]._id %>" class="btn-floating btn-large waves-effect waves-light blue">
+                                <a href="/getCreateLinkPage/<%= groups[i]._id %>" class="btn-floating btn-large waves-effect waves-light blue">
                                     <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                             <form
-                                action="/main/deleteGroup/<%= group[i]._id%>?_method=DELETE"
+                                action="/main/deleteGroup/<%= groups[i]._id%>?_method=DELETE"
                                 method="POST"
                                 class="col-3"
                                 >
                                 <button class="btn btn-primary fa fa-trash" type="submit"></button>
                             </form>
                             <% } %>
+                            
                         </div>
                     </div> 
                     </div>

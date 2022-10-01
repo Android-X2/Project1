@@ -66,7 +66,7 @@ module.exports = {
       try {
         const group = await Group.find({user: req.params.id})
         const links = await Link.find().sort({createdAt:'asc'}).lean()
-        res.render('allGroups.ejs', {group:group, links:links,user:req.params.id})
+        res.render('allGroups.ejs', {groups:group, links:links,user:req.params.id})
       } catch (err) {
         console.log(err)
         res.render('error/404')

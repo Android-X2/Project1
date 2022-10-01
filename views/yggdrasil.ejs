@@ -8,32 +8,33 @@
 <div >
     <ul class="group-container">
         <% for(let i = 0; i<6; i++){ %>  
-            <% if(group[i]) {%>
+            
             <li >
                 <div class="list-container2" >
                     <div class="title-container">
-                        <h6><%= group[i]?.title %></h6>
+                        <h6><%= groups[i]?.title %></h6>
                     </div>
                     <div class="divider"></div>
-                    <ul>
-                        <% for(let j=0;j<links.length;j++){ %>
-                            <div class="link-container" >
-                                <% if(group[i]?._id.toString() == links[j]?.group.toString()) { %>
-                                    <li>
-                                        <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
-                                    </li>  
+                    <% let links1 = links.filter(x=>x.group.toString() == groups[i]._id.toString()) %>
+                        <ul>
+                            <% for(let j=0; j<4; j++){ %>
+                                <% if(links1[j]) { %> 
+                                <div class="link-container" >
+                                        <li>
+                                            <a href="<%= links1[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links1[j].title %></a>
+                                        </li>  
+                                </div>  
                                 <% } %>
-                            </div>  
-                        <% } %>
-                    </ul> 
+                            <% } %>
+                        </ul> 
                 </div>
             </li>
-            <% } %>
+           
         <% } %>
     </ul>
 </div>
 
-<% if(group.length > 6) { %>
+<% if(groups.length > 6) { %>
     <div class="nextPage-container">
         <h6>All Groups</h6>
         <a href="/allGroups/<%=user._id%>" >

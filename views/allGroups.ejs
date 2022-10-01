@@ -9,27 +9,25 @@
 </header>
 <div >
     <ul class="group-container">
-        <% for(var i=0; i<group.length; i++) {%> 
+        <% for(var i=0; i<groups.length; i++) {%> 
             <li class="thing">
                 <div class="list-container">
                     <div>
                         <div class="title-container">
-                            <h6><%= group[i]?.title %></h6>
+                            <h6><%= groups[i]?.title %></h6>
                         </div>
+                        <% let links1 = links.filter(x=>x.group.toString() == groups[i]._id.toString()) %>
                         <ul>
-                            <% for(let j=0;j<links.length;j++){ %>
-                                <div class="thing">
-                                    <% if(group[i]._id.toString() == links[j].group.toString()) { %>
+                            <% for(let j=0; j<4; j++){ %>
+                                <% if(links1[j]) { %> 
+                                <div class="link-container" >
                                         <li>
-                                            <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block"><%= links[j].title %></a>
-    
+                                            <a href="<%= links1[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links1[j].title %></a>
                                         </li>  
-                                        <% } %>
-                
-                                </div>
-                                
+                                </div>  
+                                <% } %>
                             <% } %>
-                        </ul>
+                        </ul> 
                     </div>
                    
                 </div>

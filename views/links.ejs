@@ -13,15 +13,15 @@
     <h3>Current Links</h3>
     <% for(let j=0;j<links.length;j++){ %>
         <% if(group._id.toString() == links[j].group.toString()) { %>
-       <span>
-            <a href="<%= links[j].link %>" target="_blank"><%= links[j].title %></a>
+       <div>
+        <a href="<%= links[j].link %>" target="_blank"><%= links[j].title %></a>
             <form
             action="/main/deleteLink/<%= links[j]._id%>?_method=DELETE"
             method="POST"
             class="col-3">
                 <button class="btn btn-primary fa fa-trash" type="submit"></button>
             </form>
-       </span>
+       </div>
         <% } %>
     <% } %>
     <h3>Add a link in <%=group.title %> here</h3>
