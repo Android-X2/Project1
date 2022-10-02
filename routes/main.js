@@ -11,6 +11,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Main Routes 
 router.get('/',homeController.getIndex);
 router.get('/profile/:id', homeController.getYggdrasil)
+router.get('/profile/allLinks/:id', groupController.allLinks2)
+
 router.get('/dashboard', ensureAuth, homeController.getDashboard )
 router.get('/groups', ensureAuth, groupController.getCreateGroup)
 router.post('/createGroup', groupController.createGroup)

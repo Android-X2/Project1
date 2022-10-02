@@ -136,6 +136,7 @@ body {
 .allLinks-container ul{
     display: flex;
     flex-direction: row;
+    
     flex-wrap: wrap;
     margin: 1%;
 }

@@ -20,7 +20,6 @@ module.exports = {
     },
     getYggdrasil: async (req,res) =>{
       try {
-        console.log(req.params.id)
         const user= await User.findById(req.params.id)
         const group = await Group.find({user:req.params.id}).lean()
         const links = await Link.find().sort({createdAt:'asc'}).lean()

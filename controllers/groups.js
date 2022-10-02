@@ -72,7 +72,7 @@ module.exports = {
         res.render('error/404')
       }
     },
-    allLinks: async (req,res)=>{
+    allLinks: async (req,res)=>{ //logged in user
       try {
         const group = await Group.findById(req.params.id)
         const link = await Link.find({group:req.params.id}).sort({createdAt:'desc'}).lean()
@@ -81,6 +81,18 @@ module.exports = {
         console.log(err)
         res.render('error/404')
       }
-    }
+    },
+    allLinks2: async (req,res)=>{ //any user view
+      try {
+        const group = await Group.findById(req.params.id)
+        const users = group.user.toString()
+        console.log(users)
+        const link = await Link.find({group:req.params.id}).sort({createdAt:'desc'}).lean()
+        res.render('allLinks2.ejs',{groups:group,links:link,user:users})
+      } catch (err) {
+        console.log(err)
+        res.render('error/404')
+      }
+    },
   };
   

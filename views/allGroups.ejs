@@ -27,6 +27,11 @@
                                 </div>  
                                 <% } %>
                             <% } %>
+                            <% if(links1.length>=5){ %> 
+                                <div class="all-container">
+                                    <a href="/profile/allLinks/<%= groups[i]._id %>">All <%= links1.length %> Links...</a>
+                                </div>
+                            <%}%>
                         </ul> 
                     </div>
                    

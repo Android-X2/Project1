@@ -8,7 +8,6 @@
 <div >
     <ul class="group-container">
         <% for(let i = 0; i<6; i++){ %>  
-            
             <li >
                 <div class="list-container2" >
                     <div class="title-container">
@@ -26,10 +25,14 @@
                                 </div>  
                                 <% } %>
                             <% } %>
+                            <% if(links1.length>=5){ %> 
+                                <div class="all-container">
+                                    <a href="/profile/allLinks/<%= groups[i]._id %>">All <%= links1.length %> Links...</a>
+                                </div>
+                            <%}%>
                         </ul> 
                 </div>
             </li>
-           
         <% } %>
     </ul>
 </div>
