@@ -30,9 +30,9 @@
                                 <% } %>
                             <% } %>
                         </ul> 
-                        <% if(links1.length>6){ %> 
+                        <% if(links1.length>=5){ %> 
                             <div class="all-container">
-                                <a href="#">All The Links...</a>
+                                <a href="/allLinks/<%= groups[i]._id %>">All <%= links1.length %> Links...</a>
                             </div>
                         <%}%>
                     </div>

@@ -1,0 +1,38 @@
+<%- include('partials/header') -%>
+
+<header class="dashboard-header top-container">
+    <h3><i class="fas fa-soli fa-tree"></i>Yggdrasil</h3>
+    <div class="top-container option-container">
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+    </div>
+</header>
+<div class="center">
+    <div class="title-container">
+        <h6><%= groups?.title %></h6>
+    </div>
+    <div class="allLinks-container">
+        <ul>
+                <% for(let j=0; j<links.length; j++){ %>
+                    <div class="all-links" >
+                        <li>
+                            <a href="<%= links[j].link %>" target="_blank" class="bg-primary btn btn-primary btn-block btn-rounded"><%= links[j].title %></a>
+                        </li>
+                        <form
+                            action="/main/deleteLink/<%= links[j]._id%>?_method=DELETE"
+                            method="POST"
+                            class="col-3">
+                             <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                        </form> 
+                    </div> 
+                    
+                <% } %>
+    </ul> 
+    </div>
+    
+</div>
+
+
+<%- include('partials/footer') -%>

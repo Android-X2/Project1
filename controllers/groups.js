@@ -27,7 +27,7 @@ module.exports = {
     },
     createLink: async (req,res)=>{
       try {
-        if(validUrl.isUri(req.body.link)){
+        if(validUrl.isUri(req.body.link)&& req.body.title.length<23){
           await Link.create({
             title:req.body.title,
             link:req.body.link,
@@ -71,7 +71,16 @@ module.exports = {
         console.log(err)
         res.render('error/404')
       }
+    },
+    allLinks: async (req,res)=>{
+      try {
+        const group = await Group.findById(req.params.id)
+        const link = await Link.find({group:req.params.id}).sort({createdAt:'desc'}).lean()
+        res.render('allLinks.ejs',{groups:group,links:link})
+      } catch (err) {
+        console.log(err)
+        res.render('error/404')
+      }
     }
-
   };
   
