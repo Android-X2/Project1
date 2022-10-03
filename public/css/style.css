@@ -2,7 +2,7 @@ body {
     color:white;
     background: rgb(134,176,73);
     background: linear-gradient(90deg, rgba(134,176,73,1) 0%, rgba(153,190,101,1) 20%, rgba(174,207,133,1) 40%, rgba(195,223,165,1) 60%, rgba(206,232,181,1) 80%, rgba(223,245,206,1) 100%); 
-    font-size:  1.2vw;
+    
 }
 .card-content{
     color:black
@@ -150,3 +150,13 @@ body {
     width: 80%;
 }
 
+@media screen and (max-width:900px) {
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    .group-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
